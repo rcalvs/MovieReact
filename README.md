@@ -1,6 +1,8 @@
-# Baseado no projeto [Movie Card Liberay CRUD](git@github.com:rcalvs/sd-010-a-project-movie-card-library-crud.git)
+# Baseado no projeto Movie Card Liberay CRUD
 
 Atualização do projeto com estilização e TailwindCSS
+
+[Página do projeto inicial](https://github.com/rcalvs/sd-010-a-project-movie-card-library-crud).
 
 # Getting Started with Create React App
 
