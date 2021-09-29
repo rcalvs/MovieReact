@@ -22,7 +22,7 @@ function MovieList() {
     setMovies(getMoviesReturn.results);
     setBanner(getMoviesReturn[random])
     // setGenner(getGennerReturn.genres);
-    console.log(movies);
+    // console.log(movies);
   }
 
   return (
@@ -33,6 +33,7 @@ function MovieList() {
       {movies.map((movie) => <MovieCard  movie={movie}/>)}
       </div>
       {/* {genner.map((gen) => <h1>{gen.name}</h1>)} */}
+
     </div>
   );
 } 
