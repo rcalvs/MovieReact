@@ -3,7 +3,7 @@ import * as movieAPI from '../services/movieAPI';
 import MovieCard from '../components/MovieCard'
 import Banner from '../components/Banner'
 import * as API from '../services/API';
-
+import Carousel from '../components/Carousel'
 
 function MovieList() {
   const [movies, setMovies] = useState([])
@@ -22,18 +22,20 @@ function MovieList() {
     setMovies(getMoviesReturn.results);
     setBanner(getMoviesReturn[random])
     // setGenner(getGennerReturn.genres);
-    // console.log(movies);
+    console.log(movies);
   }
 
   return (
     <div>
       <h1>Movie Library</h1>
       <Banner movie={banner} />
-      <div className="flex flex-wrap">
+      {/* <div className="flex flex-wrap">
       {movies.map((movie) => <MovieCard  movie={movie}/>)}
-      </div>
+      </div> */}
       {/* {genner.map((gen) => <h1>{gen.name}</h1>)} */}
-
+      <div>
+      <Carousel moviesList={movies}/>
+      </div>
     </div>
   );
 } 
