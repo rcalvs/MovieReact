@@ -8,25 +8,7 @@ export async function getPopular() {
   return response.json();
 }
 
-
-// export async function getProductsFromCategoryAndQuery(categoryId, query) {
-//   const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}&q=${query}`);
-//   return response.json();
-// }
-
-// export async function getProductsFromQuery(query) {
-//   const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${query}`);
-//   return response.json();
-// }
-
-// export async function getProductsFromCategory(categoryId) {
-//   const response = await fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}`);
-//   return response.json();
-// }
-
-// export async function getProductById(productId) {
-//   const response = await fetch(`https://api.mercadolibre.com/items/${productId}`);
-//   const xablau = await response.json();
-//   console.log(xablau);
-//   return xablau;
-// }
+export async function getById(id) {
+  const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=pt-BR&sort_by=popularity.asc&page=1&with_genres=${id}`);
+  return response.json();
+}
