@@ -1,10 +1,10 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function MovieCard(props) {
   const { movie } = props;
   // const { id, title, storyline } = movie;
-  // const link = `/movies/${id}`;
+  const link = `/movie/${movie.id}`;
   return (
     <div className="flex relative w-48 h-54 min-w-min min-h-full">
       <img
@@ -15,13 +15,14 @@ function MovieCard(props) {
         bg-gradient-to-b from-transparent to-black
         absolute top-0 flex-col justify-center items-center
         m-auto font-bold text-white w-48 h-54 min-w-min min-h-full
-        
         ">
-        <h1 className="flex justify-center absolute inset-x-0 bottom-0">
-          { movie.title }
-        </h1>
+        <Link to={ link }>
+          {/*Nota do Desinger: Colocar um icone de Lupa para servir de link */}
+          <h1 className="flex justify-center absolute inset-x-0 bottom-0">
+            { movie.title }
+          </h1>
+      </Link>
       </div>
-      {/* <Link to={ link }>VER DETALHES</Link> */}
     </div>
   );
 

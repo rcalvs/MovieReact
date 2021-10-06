@@ -37,23 +37,14 @@ function MovieProvider({ children }) {
     return getMoviesById.results;
   }
 
-  // const AllMovie = async () => {
-  //   const getGennerReturn = await API.getGenres();
-  //   const test = [...getGennerReturn.genres]
-  //   // console.log(test);
-  //   const movieTest = {};
-  //   test.forEach(async (gen, i) => {
-  //     const getMovies = await fetchMovieById(gen.id)
-  //     return movieTest[gen.name] = getMovies;
-  //   })
-  //   // console.log(movieTest);
-  //   setMoviesId(movieTest)
-  //   console.log(moviesId);
-  // }
+  const fetchMovieDetail = async (id) => {
+    const getMovieDetail = await API.getMovie(id);
+    return getMovieDetail;
+  } 
 
   return (
     <MovieContext.Provider
-      value={ {popular, banner, gener, moviesId} }
+      value={ {popular, banner, gener, moviesId, fetchMovieDetail } }
       >
       { children }
     </MovieContext.Provider>

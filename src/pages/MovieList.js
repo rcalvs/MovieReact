@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Banner from '../components/Banner'
 import Carousel from '../components/Carousel'
 import MovieContext from '../context/MovieContext';
