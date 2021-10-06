@@ -9,14 +9,20 @@ function MovieProvider({ children }) {
   const [moviesId, setMoviesId] = useState({})
 
   useEffect(() => {
-    fetchGener()
+    fetchGener();
     fetchMovieApi();
-    AllMovie();
   },[]);
 
   const fetchGener = async () => {
     const getGennerReturn = await API.getGenres();
     setGener(getGennerReturn.genres);
+    const test = [...getGennerReturn.genres]
+    const movieTest = {};
+    test.forEach(async (gen, i) => {
+      const getMovies = await fetchMovieById(gen.id)
+      return movieTest[gen.name] = getMovies;
+    })
+    setMoviesId(movieTest)
   }
 
   const fetchMovieApi = async () => {
@@ -31,23 +37,23 @@ function MovieProvider({ children }) {
     return getMoviesById.results;
   }
 
-  const AllMovie = async () => {
-    const getGennerReturn = await API.getGenres();
-    const test = [...getGennerReturn.genres]
-    // console.log(test);
-    const movieTest = {};
-    test.forEach(async (gen, i) => {
-      const getMovies = await fetchMovieById(gen.id)
-      return movieTest[gen.name] = getMovies;
-    })
-    // console.log(movieTest);
-    setMoviesId(movieTest)
-    console.log(moviesId);
-  }
+  // const AllMovie = async () => {
+  //   const getGennerReturn = await API.getGenres();
+  //   const test = [...getGennerReturn.genres]
+  //   // console.log(test);
+  //   const movieTest = {};
+  //   test.forEach(async (gen, i) => {
+  //     const getMovies = await fetchMovieById(gen.id)
+  //     return movieTest[gen.name] = getMovies;
+  //   })
+  //   // console.log(movieTest);
+  //   setMoviesId(movieTest)
+  //   console.log(moviesId);
+  // }
 
   return (
     <MovieContext.Provider
-      value={ {popular, banner, gener, moviesId, AllMovie} }
+      value={ {popular, banner, gener, moviesId} }
       >
       { children }
     </MovieContext.Provider>
