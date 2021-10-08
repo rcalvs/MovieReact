@@ -3,17 +3,14 @@ import './App.css';
 import MovieList from './pages/MovieList';
 import MovieProvider from './context/MovieProvider';
 import MovieDetails from './pages/MovieDetails';
+import Login from './pages/Login';
 
 function App() {
   return (
     <Switch>
       <MovieProvider>
-        <Route exact path='/'>
-          {/*
-          Nota do Desinger: Colocar um header daora
-          <h1 className='text-3xl'>ALgo</h1> */}
-          <MovieList />
-        </Route>
+        <Route exact path='/' component={ Login } />
+        <Route path='/browse' component={ MovieList } />
         <Route path="/movie/:id" render={ (props) => <MovieDetails { ...props } /> } />
       </MovieProvider>
     </Switch>
